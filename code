@@ -1,1 +1,36 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
 
+LiquidCrystal_I2C lcd(0x27, 16, 2);   // change to 0x3F if required
+
+void setup() {
+  lcd.init();
+  lcd.backlight();
+}
+
+void loop() {
+
+  //Welcome screen
+  lcd.clear();
+  lcd.setCursor(4, 0);     // Center "Welcome"
+  lcd.print("Welcome");
+  lcd.setCursor(6, 1);     // Center "Verse"
+  lcd.print("To");
+  delay(2000);
+
+  // Experiment Verse Screen
+  lcd.clear();
+  lcd.setCursor(3, 0);     // Center "Experiment"
+  lcd.print("Experiment");
+  lcd.setCursor(5, 1);     // Center "Verse"
+  lcd.print("Verse");
+  delay(2500);
+
+  // Subscribe Screen
+  lcd.clear();
+  lcd.setCursor(5, 0);      // center "Please"
+  lcd.print("Please");
+  lcd.setCursor(3, 1);      // Center "Subscribe!"
+  lcd.print("Subscribe!");
+  delay(2500);
+}
